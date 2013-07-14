@@ -3,7 +3,8 @@ from polls.models import Poll, Choice
 from django.contrib import admin
 
 class PollAdmin(admin.ModelAdmin):
-    fields = ['question', 'pub_date']
-
+    fieldsets = [('type of question', {'fields':['question']}),('date infos',{'fields':['pub_date']})]
+class ChoiceAdmin(admin.ModelAdmin):
+	fieldsets = [('No of votes',{'fields':['vote']}),('Your choice',{'fields':['choice_text']}), (None,{'fields':['poll']})]
 admin.site.register(Poll, PollAdmin)
-admin.site.register(Choice)
+admin.site.register(Choice, ChoiceAdmin)
