@@ -1,8 +1,14 @@
 {% if qns %}
   <ol> {% for qn in qns%}
   <li>
-  <a href="/polls/{{qn.id}}/">{{qn.question}} </a></li>
-   <i>It was published in : {{qn.pub_date}}</i>
+	 <h4> {{qn.question}}</h4>
+  </li>
+   <p><i>It was published in : {{qn.pub_date}}</i></br>
+   <a href="/polls/{{qn.id}}/"> View </a> <br>
+    <a href="/polls/{{qn.id}}/delete"> remove </a>
+ 
+   
+   </p>
   {% endfor %}
   
     </ol>
