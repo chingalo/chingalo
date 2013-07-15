@@ -1,0 +1,13 @@
+{% if qns %}
+  <ol> {% for qn in qns%}
+  <li>
+  <a href="/polls/{{qn.id}}/">{{qn.question}} </a></li>
+   <i>It was published in : {{qn.pub_date}}</i>
+  {% endfor %}
+  
+    </ol>
+ 
+{% else %}
+ <p>not available</p>
+ {% endif%}
+  

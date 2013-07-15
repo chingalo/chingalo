@@ -1,0 +1,7 @@
+{% if det %}
+{% for detail in det%}
+<p><b><i>{{detail}}</i> : </b> Number of votes is {{detail.vote}}</p>
+{% endfor %}
+{% else %}
+<p>not found </p>
+{% endif%}
