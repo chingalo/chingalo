@@ -1,2 +1,3 @@
 *.pyc
 pollsapp.db
+mysite/localsettings.py
