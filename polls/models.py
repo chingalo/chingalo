@@ -4,7 +4,7 @@ from django.utils import timezone
 # Create your models here.
 class Poll(models.Model):
 	question = models.CharField(max_length=200)
-	pub_date = models.DateTimeField('date published')
+	pub_date = models.DateTimeField(default=timezone.now)
 	def __unicode__(self):
 		return self.question
 	def was_published_recently(self):
