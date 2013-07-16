@@ -9,8 +9,9 @@ from django.core.context_processors import csrf
 #function to view polls available on database
 def index(request):
 	qns = Poll.objects.all()
+	choices = Choice.objects.all()
 	template = loader.get_template('polls/index.html')
-	context = RequestContext(request,{'qns':qns})   
+	context = RequestContext(request,{'qns':qns,'choices':choices})   
 	return HttpResponse(template.render(context)) 
 
 

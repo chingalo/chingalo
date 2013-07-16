@@ -1,14 +1,24 @@
 {% if qns %}
   <ol> {% for qn in qns%}
-  <li>
-	 <h4> {{qn.question}}</h4>
-  </li>
-   <p><i>It was published in : {{qn.pub_date}}</i></br>
-   <a href="/polls/{{qn.id}}/"> View </a> <br>
-    <a href="/polls/{{qn.id}}/delete"> remove </a>
- 
-   
-   </p>
+		  <li>
+			 <h4> {{qn.question}}</h4>
+		  </li>
+		  <select>
+			  <option value="">---</option>
+			   {% for choice in choices %}
+					
+					{% if choice.poll == qn %}
+						<option value="{{ choice.choice_text }}">{{ choice.choice_text }}</option>
+					{% endif %}
+				{% endfor %}
+				</select>
+				<br/>
+			<p>
+			   <a href="/{{qn.id}}/"> View </a> <br>
+			   <a href="/{{qn.id}}/delete"> remove </a>
+			   <br/>
+			   <i>It was published in : {{qn.pub_date}}</i></br>
+		   </p>
   {% endfor %}
   
     </ol>
@@ -16,4 +26,4 @@
 {% else %}
  <p>not available</p>
  {% endif%}
- <a href="/polls/createpoll/"> add new poll</a> 
+ <a href="/createpoll/"> add new poll</a> 
