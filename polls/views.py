@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from polls.models import Poll, Choice
-from polls.forms import Create_poll
+from polls.forms import Create_poll, Create_choice
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 
@@ -38,7 +38,7 @@ def create_poll(request):
 	 form = Create_poll(request.POST)
 	 if form.is_valid():
 	    form.save()	    
-         return HttpResponseRedirect('/polls/views/')
+         return HttpResponseRedirect('/')
         else:
 		 form = Create_poll()
 		 args = {}
@@ -46,7 +46,19 @@ def create_poll(request):
 		 args[ 'form' ] = form
 		 return render_to_response('polls/newpoll.html',args)
 		 
-	         
+def create_choice(request):
+	if request.POST:
+	 form = Create_choice(request.POST)
+	 if form.is_valid():
+	    form.save()	    
+         return HttpResponseRedirect('/')
+        else:
+		 form = Create_choice()
+		 args = {}
+		 args.update(csrf(request))
+		 args[ 'form' ] = form
+		 return render_to_response('polls/newchoice.html',args)
+		         
       
        
 

@@ -1,0 +1,8 @@
+<form action ="/createchoice/" method = "POST">
+{% csrf_token %}
+<table>
+{{ form.as_table}}
+</table>
+<input type="submit" value="Add choice" name="Add choice" >
+
+</form>

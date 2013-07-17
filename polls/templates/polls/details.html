@@ -1,9 +1,17 @@
+<html>
+	<head>
+		<title>Poll and choice</title>
 {% if det %}
 {% for detail in det%}
 <p><b><i>{{detail}}</i> : </b> Number of votes is {{detail.vote}}</p>
+
 {% endfor %}
+<a href="/createchoice/">add another choice</a>>
 {% else %}
 <p>sorry!!!!</p><br> 
-Neither choices or votes available </p>
+
+Neither choices or votes available</br>
+<a href="/createchoice/">please add choice</a>> </p>
 {% endif%}
-<a href="/">Back</a>
+<p></br><a href="/">Back</a></p>
+

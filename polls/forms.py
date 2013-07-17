@@ -4,3 +4,6 @@ from polls.models import Poll, Choice
 class Create_poll(forms.ModelForm):
 	class Meta:
 		model = Poll
+class Create_choice(forms.ModelForm):
+	class Meta:
+		model = Choice
