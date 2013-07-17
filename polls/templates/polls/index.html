@@ -1,3 +1,4 @@
+<title>VIEW ALL POLLS</title>
 {% if qns %}
   <ol> {% for qn in qns%}
 		  <li>
@@ -8,14 +9,14 @@
 			   {% for choice in choices %}
 					
 					{% if choice.poll == qn %}
-						<option value="{{ choice.choice_text }}">{{ choice.choice_text }}</option>
+						<option value="{{ choice.choice_text}}">{{ choice.choice_text}}</option>
 					{% endif %}
 				{% endfor %}
 				</select>
 				<br/>
 			<p>
-			   <a href="/{{qn.id}}/"> View </a> <br>
-			   <a href="/{{qn.id}}/delete"> remove </a>
+			   <a href="{% url 'choice_view' qn.id %}"> View </a> <br>
+			   <a href="{% url 'delete_poll' qn.id %}"> remove </a>
 			   <br/>
 			   <i>It was published in : {{qn.pub_date}}</i></br>
 		   </p>
@@ -26,4 +27,4 @@
 {% else %}
  <p>not available</p>
  {% endif%}
- <a href="/createpoll/"> add new poll</a> 
+ <a href="{% url 'create_poll' %}"> add new poll</a> 

@@ -1,4 +1,5 @@
-<form action ="/createpoll/" method = "POST">
+<title>ADD CHOICE</title>
+<form action ="{% url 'create_poll' %}" method = "POST">
 {% csrf_token %}
 <ul>
 {{ form.as_ul}}
