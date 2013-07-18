@@ -12,7 +12,7 @@ my fist polls and choice app
 functionalities of my polls and choice app:
 1: to view polls and corresponding choices from database
 2: to delete poll and correspponding choices from database
-3: to add poll and its choice
+3: to add poll and its choice and vot for a choice
 
 
 

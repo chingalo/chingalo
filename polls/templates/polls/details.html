@@ -6,6 +6,7 @@
 <p><b><i>{{detail}}</i> : </b> Number of votes is {{detail.vote}}</p>
 
 {% endfor %}
+<a href="{% url 'vote' poll.id %}">click vote </a></br>
 <a href="{% url 'create_choice' %}">add another choice</a>>
 {% else %}
 <p>sorry!!!!</p><br> 
@@ -14,4 +15,3 @@ Neither choices or votes available</br>
 <a href="{% url 'create_choice' %}">please add choice</a>> </p>
 {% endif%}
 <p></br><a href="/">Back</a></p>
-

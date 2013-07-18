@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^(?P<poll_id>\d+)/delete/$', views.delete, name= 'delete_poll'),    
     url(r'^(?P<poll_id>\d+)/$', views.detail, name='choice_view'),
     url(r'^createchoice/$',views.create_choice, name='create_choice'),
+    url(r'^(?P<poll_id>\d+)/vote/$', views.vote, name='vote'),    
 )

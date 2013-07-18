@@ -15,16 +15,17 @@
 				</select>
 				<br/>
 			<p>
-			   <a href="{% url 'choice_view' qn.id %}"> View </a> <br>
-			   <a href="{% url 'delete_poll' qn.id %}"> remove </a>
+			   <a href="{% url 'choice_view' qn.id%}"> View </a> <br>
+			   <a href="{% url 'delete_poll' qn.id%}"> remove </a>
 			   <br/>
 			   <i>It was published in : {{qn.pub_date}}</i></br>
 		   </p>
   {% endfor %}
   
     </ol>
- 
+ <a href="{%url 'create_poll'%}"> add new poll</a> 
 {% else %}
- <p>not available</p>
+ <p>No poll available available</p>
+ <a href="{%url 'create_poll'%}"> create new poll</a> 
  {% endif%}
- <a href="{% url 'create_poll' %}"> add new poll</a> 
+ 

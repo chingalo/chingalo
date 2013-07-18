@@ -1,23 +1,42 @@
 from django.http import HttpResponseRedirect
 from polls.models import Poll, Choice
 from polls.forms import Create_poll, Create_choice
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404, render
 from django.core.context_processors import csrf
-from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
 
-#function to view polls available on database
+#to vote for a choice
+def vote(request, poll_id):
+    p = get_object_or_404(Poll, pk=poll_id)
+    try:
+        selected_choice = p.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):  
+        return render(request, 'polls/voting.html', {
+            'poll': p,
+            'message': "select a choice.",
+        })
+    else:
+        selected_choice.vote += 1
+        selected_choice.save()        
+        return HttpResponseRedirect(reverse('choice_view', args=(p.id,)))
+
+from django.shortcuts import get_object_or_404, render
+
+def results(request, poll_id):
+    poll = get_object_or_404(Poll, pk=poll_id)
+    return render(request, 'polls/results.html', {'poll': poll})
+
 def index(request):
 	qns = Poll.objects.all()
 	choices = Choice.objects.all()	
 	context ={'qns':qns,'choices':choices}   
 	return render(request, 'polls/index.html', context) 
-
-
- #function to view choices for correponding poll   
+#to view choices nad votes	   
 def detail(request, poll_id):
-	p=Poll.objects.get(id=poll_id)
-	det=p.choice_set.all()	
-	context ={'det':det}
+	poll=Poll.objects.get(id=poll_id)
+	det=poll.choice_set.all()	
+	context ={'det':det,'poll':poll}
 	return render(request,'polls/details.html',context)
 
 #function to remove a given poll	
@@ -41,7 +60,7 @@ def create_poll(request):
 		 args.update(csrf(request))
 		 args[ 'form' ] = form
 		 return render_to_response('polls/newpoll.html',args)
-#to add choice on a given poll		 
+#to craete new choice		 
 def create_choice(request):
 	if request.POST:
 	 form = Create_choice(request.POST)
