@@ -18,6 +18,7 @@
 			   <a href="{% url 'choice_view' qn.id%}"> View </a> <br>
 			   <a href="{% url 'delete_poll' qn.id%}"> remove </a>
 			   <br/>
+			   <p><a href="{% url 'edit_poll' qn.id %}">click to edit</a></p>
 			   <i>It was published in : {{qn.pub_date}}</i></br>
 		   </p>
   {% endfor %}
