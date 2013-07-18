@@ -20,13 +20,7 @@ def vote(request, poll_id):
         selected_choice.vote += 1
         selected_choice.save()        
         return HttpResponseRedirect(reverse('choice_view', args=(p.id,)))
-
-from django.shortcuts import get_object_or_404, render
-
-def results(request, poll_id):
-    poll = get_object_or_404(Poll, pk=poll_id)
-    return render(request, 'polls/results.html', {'poll': poll})
-
+#view polls
 def index(request):
 	qns = Poll.objects.all()
 	choices = Choice.objects.all()	
