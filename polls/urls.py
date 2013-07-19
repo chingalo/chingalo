@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^createchoice/$',views.create_choice, name='create_choice'),
     url(r'^(?P<poll_id>\d+)/vote/$', views.vote, name='vote'), 
     url(r'^(?P<poll_id>\d+)/edit/$', views.edit_poll, name='edit_poll'),
+    url(r'^(?P<poll_id>\d+)/warning/$', views.warning, name='warning'),
        
 )

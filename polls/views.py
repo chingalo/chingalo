@@ -82,5 +82,9 @@ def vote(request, poll_id):
         selected_choice.vote += 1
         selected_choice.save()        
         return HttpResponseRedirect(reverse('choice_view', args=(p.id,)))
-       
-
+  
+# confirmation upon delete       
+def warning(request, poll_id):
+	poll=Poll.objects.get(id=poll_id)
+	context={'poll':poll, 'msg':'Do you sure you want delete '}
+	return render(request,'polls/warning.html',context)
