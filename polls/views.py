@@ -13,6 +13,8 @@ def index(request):
 	choices = Choice.objects.all()	
 	context ={'qns':qns,'choices':choices}   
 	return render(request, 'polls/index.html', context)
+	
+	
 #to add poll
 def create_poll(request):
 	if request.POST:
@@ -26,7 +28,8 @@ def create_poll(request):
 		 args.update(csrf(request))
 		 args[ 'form' ] = form
 		 return render_to_response('polls/newpoll.html',args)
-		         	 
+		 
+		 		         	 
  #edit a poll
 def edit_poll(request, poll_id):	 
 	 p=Poll.objects.get(id=poll_id)
@@ -39,6 +42,7 @@ def edit_poll(request, poll_id):
 		p.question=edited_poll
 		p.save()
 		return HttpResponseRedirect('/')
+		
 
 #to remove a given poll	
 def delete(request, poll_id):
@@ -46,7 +50,9 @@ def delete(request, poll_id):
 	rempoll.delete()
 	word='wow you have delete item'	
 	context ={'word':word}
-	return render(request,'polls/message.html',context)		
+	return render(request,'polls/message.html',context)	
+	
+		
 #to craete new choice		 
 def create_choice(request):
 	if request.POST:
@@ -59,15 +65,9 @@ def create_choice(request):
 		 args = {}
 		 args.update(csrf(request))
 		 args[ 'form' ] = form
-		 return render_to_response('polls/newchoice.html',args)	
-#to view choices nad votes	   
-def detail(request, poll_id):
-	poll=Poll.objects.get(id=poll_id)
-	det=poll.choice_set.all()	
-	context ={'det':det,'poll':poll}
-	return render(request,'polls/details.html',context)
-
-
+		 return render_to_response('polls/newchoice.html',args)
+		 
+		 
 #to vote for a choice
 def vote(request, poll_id):
     p = get_object_or_404(Poll, pk=poll_id)
@@ -81,10 +81,20 @@ def vote(request, poll_id):
     else:
         selected_choice.vote += 1
         selected_choice.save()        
-        return HttpResponseRedirect(reverse('choice_view', args=(p.id,)))
-  
+        return HttpResponseRedirect(reverse('choice_view', args=(p.id,)))  
+        
+        
 # confirmation upon delete       
 def warning(request, poll_id):
 	poll=Poll.objects.get(id=poll_id)
 	context={'poll':poll, 'msg':'Do you sure you want delete '}
 	return render(request,'polls/warning.html',context)
+	
+	
+#to view polls counts
+def view_all(request):
+	polls=Poll.objects.all()
+	choices=Choice.objects.all()
+	context={'polls':polls,'choices':choices,'value':0,}
+	return render(request, 'polls/Views.html', context)
+

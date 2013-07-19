@@ -1,4 +1,10 @@
 <title>VIEW ALL POLLS</title>
+<h2 align = center> POLL LIST  </h2>
+<hr>
+<p align =right > <a align =right href="{%url 'create_poll'%}"> ADD NEW POLL</a>| |
+<a href ="{% url 'view_all' %}">view Poll counts</a>
+</p>
+<hr>
 {% if qns %}
   <ol> {% for qn in qns%}
 		  <li>
@@ -9,24 +15,25 @@
 			   {% for choice in choices %}
 					
 					{% if choice.poll == qn %}
-						<option value="{{ choice.choice_text}}">{{ choice.choice_text}}</option>
+						<option value="{{ choice.choice_text}}">{{ choice.choice_text}}={{choice.id}}</option>
 					{% endif %}
 				{% endfor %}
 				</select>
 				<br/>
-			<p>
-			   <a href="{% url 'choice_view' qn.id%}"> View </a> <br>
-			   <a href="{% url 'warning' qn.id%}"> remove </a>
-			   <br/>
-			   <p><a href="{% url 'edit_poll' qn.id %}">click to edit</a></p>
-			   <i>It was published in : {{qn.pub_date}}</i></br>
+			<p>			    
+			   <a href="{% url 'edit_poll' qn.id %}">EDIT POLL</a>| |<a href="{% url 'warning' qn.id%}"> DELETE </a></br>		   
+			    <i>It was published in : {{qn.pub_date}}</i></br>
+ <hr>
+ 
 		   </p>
-  {% endfor %}
-  
+  {% endfor %}  
     </ol>
- <a href="{%url 'create_poll'%}"> add new poll</a> 
+  </br>
+  <hr>  
+ <p align = center><a href=""><strong>VOTE</strong></a></p>
+ 
 {% else %}
  <p>No poll available available</p>
- <a href="{%url 'create_poll'%}"> create new poll</a> 
+    
  {% endif%}
  

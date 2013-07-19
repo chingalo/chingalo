@@ -1,0 +1,25 @@
+<html>
+	<title>POLL LIST AND COUNTS</title>
+	<h2 align=center>POLL LIST AND COUNTS</h2>
+	<hr>	
+	<body>
+		
+	
+	{% for poll in polls %}
+  <h3>{{poll}}</h3>
+{% for choice in choices %}
+{% if choice.poll == poll %}
+{% if choice.vote > value %}
+<ul>
+<li><b><i>{{choice}}</i></b> : {{choice.vote}} votes</li>
+</ul>
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endfor %}	
+<hr>
+<p><strong><a href="/">BACK</a></strong></p>	
+	
+	</body>
+	</html>
+	
