@@ -83,18 +83,21 @@ def vote(request):
     for poll in polls:
 		choices = poll.choice_set.filter(poll_id=poll.id)
 		for x in l:				
-			for choice in choices:
-				if x == choice.choice_text:
+			if x == '':
+				l.remove(x)
+				continue			
+			else:
+				for choice in choices:
+				  if x == choice.choice_text:
 					choice.vote +=1
 					choice.save()
-					l.remove(x)
-				else:
-					continue				
-					
-			break		
-	        return HttpResponseRedirect('/')
+					l.remove(x)			
 			
-    
+			break		
+	
+			
+    context={'word':'Thank you very much for your voting....!!!'}
+    return render(request, 'polls/message.html' ,context)        
         
 # confirmation upon delete       
 def warning(request, poll_id):
