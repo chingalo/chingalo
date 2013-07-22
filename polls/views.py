@@ -76,25 +76,25 @@ def vote(request):
     dropdown=request.POST
     selected=dropdown.getlist('choice')
     a=len(selected)
-    b=range(a) 
+    b=range(a)
+    l=[] 
     for x in b:
-		for poll in polls:
-			choices=poll.choice_set.filter(poll_id=poll.id)
+		l.append(selected[x])
+    for poll in polls:
+		choices = poll.choice_set.filter(poll_id=poll.id)
+		for x in l:				
 			for choice in choices:
-				if choice.choice_text == selected[x]:
-				   choice.vote+=1
-				   choice.save()
-				   break			
-	
+				if x == choice.choice_text:
+					choice.vote +=1
+					choice.save()
+					l.remove(x)
+				else:
+					continue				
+					
+			break		
+	        return HttpResponseRedirect('/')
 			
-    context={'word':'thanks','c':'', 'valu':''}
-    return render(request, 'polls/message.html' ,context)
-
     
-			
-		
-		
-        
         
 # confirmation upon delete       
 def warning(request, poll_id):
