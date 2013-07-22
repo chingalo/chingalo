@@ -1,6 +1,9 @@
 <title>ADD CHOICE</title>
+<p align = "right" ><strong><a href="{% url 'create_choice' %}">ADD CHOICE</a></strong></p>
+
 <form action ="{% url 'create_poll' %}" method = "POST">
 {% csrf_token %}
+<p> CREATE A POLL</p>
 <ul>
 {{ form.as_ul}}
 </ul>

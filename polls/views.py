@@ -69,19 +69,31 @@ def create_choice(request):
 		 
 		 
 #to vote for a choice
-def vote(request, poll_id):
-    p = get_object_or_404(Poll, pk=poll_id)
-    try:
-        selected_choice = p.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):  
-        return render(request, 'polls/voting.html', {
-            'poll': p,
-            'message': "select a choice.",
-        })
-    else:
-        selected_choice.vote += 1
-        selected_choice.save()        
-        return HttpResponseRedirect(reverse('choice_view', args=(p.id,)))  
+def vote(request):
+    polls=Poll.objects.all()
+    choices=Choice.objects.all()
+    #QueryDict: one of the key is choice
+    dropdown=request.POST
+    selected=dropdown.getlist('choice')
+    a=len(selected)
+    b=range(a) 
+    for x in b:
+		for poll in polls:
+			choices=poll.choice_set.filter(poll_id=poll.id)
+			for choice in choices:
+				if choice.choice_text == selected[x]:
+				   choice.vote+=1
+				   choice.save()
+				   break			
+	
+			
+    context={'word':'thanks','c':'', 'valu':''}
+    return render(request, 'polls/message.html' ,context)
+
+    
+			
+		
+		
         
         
 # confirmation upon delete       
