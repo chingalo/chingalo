@@ -30,6 +30,12 @@ I'm a software developer with a passion for coding and learning new technologies
 
 ![Chingalo's GitHub stats](https://github-readme-stats.vercel.app/api?username=chingalo&show_icons=true&theme=radical)
 
+## 📋 Public Presence & Roles
+
+- IS Development Team Leader at HISP Tanzania.  [hisp.tz](https://hisp.tz/our-team)  
+- Recognized as a **Tech Enthusiast**, **DHIS2 & Flutter/Dart Expert**.  [LinkedIn](https://tz.linkedin.com/in/joseph-chingalo-b9792075)  
+- Part of the team developing national/regional health systems, data tools, and digital innovations.  [DHIS2](https://dhis2.org/oct-2024-hisp-highlights)  
+
 ## 📫 Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)]([https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/joseph-chingalo-b9792075/))
