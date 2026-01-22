@@ -112,11 +112,6 @@ I'm a passionate **Software Developer** and **Tech Enthusiast** with extensive e
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=chingalo&layout=compact&theme=radical&langs_count=8)
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=chingalo&theme=radical)
-
-</div>
-
----
 
 ## 🏆 GitHub Achievements
 
