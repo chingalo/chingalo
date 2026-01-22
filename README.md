@@ -60,6 +60,14 @@ I'm a passionate **Software Developer** and **Tech Enthusiast** with extensive e
 - **DHIS2 Analytics Messaging** - Web app for sending analytics data to messaging applications (TypeScript)
 - **[DHIS2 Utils](https://github.com/hisptz/dhis2-utils)** - Reusable functions, interfaces, and implementations for DHIS2 apps
 
+#### At Chingalo Family ([@chingalo-family](https://github.com/chingalo-family))
+- **[Task Flow](https://github.com/chingalo-family/task-flow)** - Modern task management ecosystem with Flutter mobile app, TypeScript API, and web interface for organizing and tracking tasks efficiently
+- **[Task Flow API](https://github.com/chingalo-family/task-flow-api)** - RESTful API backend for the Task Flow application built with TypeScript (Jan 2026)
+- **[Wealth Path Website](https://github.com/chingalo-family/wealth-path-website)** - Public website for financial planning and wealth management guidance (Dec 2025)
+- **[Duka Mkononi](https://github.com/chingalo-family/duka-mkononi-public-releases)** - Mobile commerce application for small business management (Dec 2025)
+- **[Snake Game](https://github.com/chingalo-family/snake-app-public-releases)** - Classic snake game built with modern mobile frameworks
+- **[Harambee Platform](https://github.com/chingalo-family/harambee-mobile-app)** - Community fundraising platform with mobile app and API for collective contributions
+
 #### Personal Projects & Innovations
 - **Mobile Health Applications** - Multiple DHIS2-based mobile apps for health data collection
 - **DHIS2 Touch** - Mobile solutions for offline DHIS2 data capture
